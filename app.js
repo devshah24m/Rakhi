@@ -157,6 +157,29 @@
     confirmPanel.hidden = false;
     document.getElementById("confirm-body").textContent =
       `${selectedChocolate.name} is on its way to you, ${currentSister.name}. Happy Rakshabandhan! 🎉`;
+
+    confirmPanel.classList.remove("celebrate");
+    void confirmPanel.offsetWidth; // restart animation if shown again
+    confirmPanel.classList.add("celebrate");
+    spawnPetals();
+  }
+
+  function spawnPetals() {
+    const field = document.getElementById("petal-field");
+    field.innerHTML = "";
+    const colors = ["#e8823c", "#c9962e", "#e8b84b", "#a3273d"];
+    const count = 22;
+
+    for (let i = 0; i < count; i++) {
+      const petal = document.createElement("span");
+      petal.className = "petal";
+      petal.style.left = Math.random() * 100 + "%";
+      petal.style.background = colors[Math.floor(Math.random() * colors.length)];
+      petal.style.animationDuration = 1.6 + Math.random() * 1.4 + "s";
+      petal.style.animationDelay = Math.random() * 0.5 + "s";
+      petal.style.transform = `rotate(${Math.floor(Math.random() * 360)}deg)`;
+      field.appendChild(petal);
+    }
   }
 
   /* ---------- Telegram ---------- */
