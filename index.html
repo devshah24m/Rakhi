@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Rakshabandhan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Poppins:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ambient decorative threads -->
+<svg class="bg-threads" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <g stroke="#e8b84b" stroke-width="1.4" fill="none" opacity="0.5">
+    <path d="M-50,120 C150,60 250,220 450,140 S750,60 900,160" />
+    <path d="M-50,640 C150,580 250,740 450,660 S750,580 900,680" />
+    <path d="M-50,380 C200,320 300,460 500,400 S780,320 900,420" />
+  </g>
+</svg>
+
+<div class="app-shell">
+  <div class="brand">
+    <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true">
+      <circle cx="20" cy="20" r="18" fill="none" stroke="#e8b84b" stroke-width="2" />
+      <circle cx="20" cy="20" r="6" fill="#e8823c" />
+    </svg>
+    <span class="brand__title">Raksha&thinsp;Bandhan</span>
+  </div>
+
+  <!-- ================= LOGIN VIEW ================= -->
+  <section id="view-login" class="view active" aria-labelledby="login-heading">
+    <div class="card">
+      <svg class="thread-tie" id="tie-icon" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M20,50 C20,25 45,25 50,45 C55,25 80,25 80,50 C80,75 55,80 50,60 C45,80 20,75 20,50 Z" />
+        <circle class="bead" cx="50" cy="50" r="5" />
+      </svg>
+      <p class="eyebrow">A little something, just for you</p>
+      <h1 class="headline" id="login-heading">What's your name?</h1>
+      <p class="sub">Type it in below and I'll bring up the message I wrote for you.</p>
+
+      <form id="login-form" novalidate>
+        <div class="field">
+          <input
+            type="text"
+            id="name-input"
+            name="name"
+            placeholder="Your name"
+            autocomplete="off"
+            aria-describedby="login-error"
+          />
+        </div>
+        <p class="form-error" id="login-error" role="alert">
+          Hmm, that name doesn't ring a bell — check the spelling?
+        </p>
+        <button type="submit" class="btn btn-primary">Show my message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= MESSAGE VIEW ================= -->
+  <section id="view-message" class="view" aria-labelledby="message-heading">
+    <div class="card">
+      <p class="occasion-line">Happy Rakshabandhan</p>
+      <h1 class="to-line" id="message-heading">Dear <span id="msg-name">—</span>,</h1>
+      <p class="message-text" id="msg-text"></p>
+      <div class="view-actions">
+        <button type="button" class="btn btn-ghost" id="btn-back-login">Not me</button>
+        <button type="button" class="btn btn-primary" id="btn-go-gift">Pick your gift →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GIFT VIEW ================= -->
+  <section id="view-gift" class="view" aria-labelledby="gift-heading">
+    <div class="card" id="gift-card">
+      <p class="eyebrow">One last thing</p>
+      <h1 class="headline" id="gift-heading">Pick your chocolate</h1>
+      <p class="sub">Whichever one you like best — I'll get it sent your way.</p>
+
+      <div class="gift-grid" id="gift-grid" role="group" aria-label="Chocolate options"></div>
+
+      <div class="address-box">
+        <label for="address-input">Where should it reach you?</label>
+        <textarea id="address-input" rows="2" placeholder="Write your full delivery address here"></textarea>
+      </div>
+
+      <button type="button" class="btn btn-primary" id="btn-confirm-gift" disabled>Confirm my pick</button>
+      <p class="status-line" id="gift-status"></p>
+    </div>
+
+    <!-- confirmation state, swapped in after a successful send -->
+    <div class="card confirm-panel" id="confirm-panel" hidden>
+      <svg class="confirm-panel__icon" viewBox="0 0 60 60" aria-hidden="true">
+        <circle cx="30" cy="30" r="28" fill="none" stroke="#c9962e" stroke-width="3" />
+        <path d="M18,31 L26,39 L43,20" fill="none" stroke="#c9962e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <h2 class="confirm-panel__title">Got it!</h2>
+      <p class="confirm-panel__body" id="confirm-body"></p>
+    </div>
+  </section>
+</div>
+
+<script src="data.js"></script>
+<script src="chocolates.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
