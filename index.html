@@ -23,6 +23,12 @@
   </g>
 </svg>
 
+<!-- petals gently drifting the whole time, not just on confirm -->
+<div class="ambient-petals" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
 <!-- marigold garland strung across the top -->
 <svg class="garland" viewBox="0 0 1600 84" preserveAspectRatio="none" aria-hidden="true">
   <defs>
@@ -63,84 +69,120 @@
 
   <!-- ================= LOGIN VIEW ================= -->
   <section id="view-login" class="view active" aria-labelledby="login-heading">
-    <div class="card">
-      <svg class="corner corner--tl" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
-      <svg class="corner corner--br" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
-      <svg class="thread-tie" id="tie-icon" viewBox="0 0 120 120" aria-hidden="true">
-        <path class="bow" d="M26,58 C26,30 54,30 60,52 C66,30 94,30 94,58 C94,86 66,92 60,70 C54,92 26,86 26,58 Z" />
-        <path class="tassel" d="M50,88 C48,98 46,104 44,112" />
-        <path class="tassel" d="M70,88 C72,98 74,104 76,112" />
-        <circle class="bead" cx="60" cy="60" r="6" />
+    <div class="card-wrap">
+      <svg class="medallion" viewBox="0 0 70 70" aria-hidden="true">
+        <circle cx="35" cy="35" r="32" fill="#fbf1e1" stroke="#c9962e" stroke-width="2.5" />
+        <circle cx="35" cy="35" r="24" fill="none" stroke="#e8823c" stroke-width="1.2" stroke-dasharray="3 4" />
+        <circle cx="35" cy="35" r="9" fill="#e8823c" />
+        <circle cx="35" cy="35" r="9" fill="none" stroke="#6b1e2b" stroke-width="1" />
       </svg>
-      <p class="eyebrow">A little something, just for you</p>
-      <h1 class="headline" id="login-heading">What's your name?</h1>
-      <p class="sub">Type it in below and I'll bring up the message I wrote for you.</p>
+      <div class="card">
+        <svg class="corner corner--tl" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
+        <svg class="corner corner--br" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
+        <svg class="thread-tie" id="tie-icon" viewBox="0 0 120 120" aria-hidden="true">
+          <path class="bow" d="M26,58 C26,30 54,30 60,52 C66,30 94,30 94,58 C94,86 66,92 60,70 C54,92 26,86 26,58 Z" />
+          <path class="tassel" d="M50,88 C48,98 46,104 44,112" />
+          <path class="tassel" d="M70,88 C72,98 74,104 76,112" />
+          <circle class="bead" cx="60" cy="60" r="6" />
+        </svg>
+        <p class="eyebrow">A little something, just for you</p>
+        <h1 class="headline" id="login-heading">What's your name?</h1>
+        <p class="sub">Type it in below and I'll bring up the message I wrote for you.</p>
 
-      <form id="login-form" novalidate>
-        <div class="field">
-          <input
-            type="text"
-            id="name-input"
-            name="name"
-            placeholder="Your name"
-            autocomplete="off"
-            aria-describedby="login-error"
-          />
-        </div>
-        <p class="form-error" id="login-error" role="alert">
-          Hmm, that name doesn't ring a bell — check the spelling?
-        </p>
-        <button type="submit" class="btn btn-primary">Show my message</button>
-      </form>
+        <form id="login-form" novalidate>
+          <div class="field">
+            <input
+              type="text"
+              id="name-input"
+              name="name"
+              placeholder="Your name"
+              autocomplete="off"
+              aria-describedby="login-error"
+            />
+          </div>
+          <p class="form-error" id="login-error" role="alert">
+            Hmm, that name doesn't ring a bell — check the spelling?
+          </p>
+          <button type="submit" class="btn btn-primary">Show my message</button>
+        </form>
+      </div>
     </div>
   </section>
 
   <!-- ================= MESSAGE VIEW ================= -->
   <section id="view-message" class="view" aria-labelledby="message-heading">
-    <div class="card">
-      <svg class="corner corner--tl" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
-      <svg class="corner corner--br" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
-      <p class="occasion-line">Happy Rakshabandhan</p>
-      <h1 class="to-line" id="message-heading">Dear <span id="msg-name">—</span>,</h1>
-      <p class="message-text" id="msg-text"></p>
-      <div class="view-actions">
-        <button type="button" class="btn btn-ghost" id="btn-back-login">Not me</button>
-        <button type="button" class="btn btn-primary" id="btn-go-gift">Pick your gift →</button>
+    <div class="card-wrap">
+      <svg class="medallion" viewBox="0 0 70 70" aria-hidden="true">
+        <circle cx="35" cy="35" r="32" fill="#fbf1e1" stroke="#c9962e" stroke-width="2.5" />
+        <circle cx="35" cy="35" r="24" fill="none" stroke="#e8823c" stroke-width="1.2" stroke-dasharray="3 4" />
+        <circle cx="35" cy="35" r="9" fill="#e8823c" />
+        <circle cx="35" cy="35" r="9" fill="none" stroke="#6b1e2b" stroke-width="1" />
+      </svg>
+      <div class="card">
+        <svg class="corner corner--tl" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
+        <svg class="corner corner--br" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
+        <p class="occasion-line">Happy Rakshabandhan</p>
+        <h1 class="to-line" id="message-heading">Dear <span id="msg-name">—</span>,</h1>
+        <p class="message-text" id="msg-text"></p>
+        <p class="signature" id="msg-signature"></p>
+        <div class="view-actions">
+          <button type="button" class="btn btn-ghost" id="btn-back-login">Not me</button>
+          <button type="button" class="btn btn-primary" id="btn-go-gift">Pick your gift →</button>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ================= GIFT VIEW ================= -->
   <section id="view-gift" class="view" aria-labelledby="gift-heading">
-    <div class="card" id="gift-card">
-      <svg class="corner corner--tl" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
-      <svg class="corner corner--br" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
-      <p class="eyebrow">One last thing</p>
-      <h1 class="headline" id="gift-heading">Pick your chocolate</h1>
-      <p class="sub">Whichever one you like best — I'll get it sent your way.</p>
+    <div class="card-wrap" id="gift-wrap">
+      <svg class="medallion" viewBox="0 0 70 70" aria-hidden="true">
+        <circle cx="35" cy="35" r="32" fill="#fbf1e1" stroke="#c9962e" stroke-width="2.5" />
+        <circle cx="35" cy="35" r="24" fill="none" stroke="#e8823c" stroke-width="1.2" stroke-dasharray="3 4" />
+        <circle cx="35" cy="35" r="9" fill="#e8823c" />
+        <circle cx="35" cy="35" r="9" fill="none" stroke="#6b1e2b" stroke-width="1" />
+      </svg>
+      <div class="card" id="gift-card">
+        <svg class="corner corner--tl" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
+        <svg class="corner corner--br" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
+        <p class="eyebrow">One last thing</p>
+        <h1 class="headline" id="gift-heading">Pick your chocolate</h1>
+        <p class="sub">Whichever one you like best — I'll get it sent your way.</p>
 
-      <div class="gift-grid" id="gift-grid" role="group" aria-label="Chocolate options"></div>
+        <div class="gift-grid" id="gift-grid" role="group" aria-label="Chocolate options"></div>
 
-      <div class="address-box">
-        <label for="address-input">Where should it reach you?</label>
-        <textarea id="address-input" rows="2" placeholder="Write your full delivery address here"></textarea>
+        <div class="address-box">
+          <label for="address-input">Where should it reach you?</label>
+          <textarea id="address-input" rows="2" placeholder="Write your full delivery address here"></textarea>
+        </div>
+
+        <button type="button" class="btn btn-primary" id="btn-confirm-gift" disabled>Confirm my pick</button>
+        <p class="status-line" id="gift-status"></p>
       </div>
-
-      <button type="button" class="btn btn-primary" id="btn-confirm-gift" disabled>Confirm my pick</button>
-      <p class="status-line" id="gift-status"></p>
     </div>
 
     <!-- confirmation state, swapped in after a successful send -->
-    <div class="card confirm-panel" id="confirm-panel" hidden>
-      <svg class="corner corner--tl" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
-      <svg class="corner corner--br" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
-      <div class="petal-field" id="petal-field"></div>
-      <svg class="confirm-panel__icon" viewBox="0 0 60 60" aria-hidden="true">
-        <circle cx="30" cy="30" r="28" fill="none" stroke="#c9962e" stroke-width="3" />
-        <path d="M18,31 L26,39 L43,20" fill="none" stroke="#c9962e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    <div class="card-wrap" id="confirm-wrap" hidden>
+      <svg class="medallion" viewBox="0 0 70 70" aria-hidden="true">
+        <circle cx="35" cy="35" r="32" fill="#fbf1e1" stroke="#c9962e" stroke-width="2.5" />
+        <circle cx="35" cy="35" r="24" fill="none" stroke="#e8823c" stroke-width="1.2" stroke-dasharray="3 4" />
+        <circle cx="35" cy="35" r="9" fill="#e8823c" />
+        <circle cx="35" cy="35" r="9" fill="none" stroke="#6b1e2b" stroke-width="1" />
       </svg>
-      <h2 class="confirm-panel__title">Got it!</h2>
-      <p class="confirm-panel__body" id="confirm-body"></p>
+      <div class="card confirm-panel" id="confirm-panel">
+        <svg class="corner corner--tl" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
+        <svg class="corner corner--br" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
+        <div class="petal-field" id="petal-field"></div>
+        <svg class="confirm-panel__icon" viewBox="0 0 120 100" aria-hidden="true">
+          <path d="M8,50 C25,18 48,18 58,46" stroke="#c9962e" stroke-width="2.5" fill="none" stroke-linecap="round" />
+          <path d="M112,50 C95,18 72,18 62,46" stroke="#c9962e" stroke-width="2.5" fill="none" stroke-linecap="round" />
+          <circle cx="60" cy="55" r="30" fill="#fff" stroke="#c9962e" stroke-width="3" />
+          <path d="M45,56 L55,67 L77,42" fill="none" stroke="#c9962e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <h2 class="confirm-panel__title">Yay, it's yours! 🎉</h2>
+        <p class="confirm-panel__body" id="confirm-body"></p>
+        <p class="signature" id="confirm-signature"></p>
+      </div>
     </div>
   </section>
 </div>
