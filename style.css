@@ -34,9 +34,20 @@ body {
   min-height: 100vh;
   font-family: var(--font-body);
   color: var(--ink);
-  background: radial-gradient(circle at 15% -10%, #7a2534 0%, var(--maroon-deep) 45%, #2f0c14 100%);
+  background: radial-gradient(circle at 15% -10%, #8a2c3d 0%, var(--maroon-deep) 45%, #240710 100%);
   background-attachment: fixed;
   overflow-x: hidden;
+}
+
+/* subtle fabric-like texture over the whole page */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(232, 184, 75, 0.1) 1px, transparent 1.6px);
+  background-size: 24px 24px;
 }
 
 a {
@@ -75,6 +86,65 @@ button {
 }
 
 /* =============================================================
+   Marigold garland (top) + diyas (bottom corners)
+   ============================================================= */
+.garland {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 84px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.diya {
+  position: fixed;
+  bottom: 14px;
+  width: 76px;
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.5));
+}
+
+.diya--left {
+  left: 14px;
+}
+
+.diya--right {
+  right: 14px;
+  transform: scaleX(-1);
+}
+
+.diya .flame {
+  transform-origin: 50% 100%;
+  animation: flicker 1.7s ease-in-out infinite;
+}
+
+.diya .flame--inner {
+  animation-delay: 0.15s;
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    transform: scaleY(1) scaleX(1) translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(1.14) scaleX(0.9) translateY(-1.5px);
+    opacity: 0.82;
+  }
+}
+
+@media (max-width: 640px) {
+  .diya {
+    width: 50px;
+  }
+}
+
+/* =============================================================
    Shell / layout
    ============================================================= */
 .app-shell {
@@ -85,7 +155,7 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 32px 20px 56px;
+  padding: 92px 20px 90px;
 }
 
 .brand {
@@ -133,8 +203,9 @@ button {
 .card {
   background: var(--cream);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-card);
-  padding: 40px 36px;
+  box-shadow: var(--shadow-card), 0 0 0 1px rgba(201, 150, 46, 0.35), 0 0 0 6px rgba(251, 241, 225, 0.5),
+    0 0 0 7px rgba(201, 150, 46, 0.5);
+  padding: 44px 38px;
   position: relative;
   overflow: hidden;
 }
@@ -148,6 +219,26 @@ button {
   height: 160px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(232, 184, 75, 0.35), transparent 70%);
+}
+
+/* ornamental corner flourishes on every card */
+.corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  opacity: 0.55;
+  z-index: 1;
+}
+
+.corner--tl {
+  top: 12px;
+  left: 12px;
+}
+
+.corner--br {
+  bottom: 12px;
+  right: 12px;
+  transform: rotate(180deg);
 }
 
 /* =============================================================
@@ -255,11 +346,11 @@ button {
 .thread-tie {
   display: block;
   margin: 0 auto 22px;
-  width: 92px;
-  height: 92px;
+  width: 128px;
+  height: 128px;
 }
 
-.thread-tie path {
+.thread-tie .bow {
   fill: none;
   stroke: var(--gold);
   stroke-width: 5;
@@ -270,18 +361,35 @@ button {
   transition: stroke-dashoffset 1.1s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-.thread-tie.tied path {
+.thread-tie.tied .bow {
+  stroke-dashoffset: 0;
+}
+
+.thread-tie .tassel {
+  fill: none;
+  stroke: var(--thread);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  transition: stroke-dashoffset 0.6s ease 0.9s;
+}
+
+.thread-tie.tied .tassel {
   stroke-dashoffset: 0;
 }
 
 .thread-tie .bead {
   fill: var(--marigold);
   opacity: 0;
-  transition: opacity 0.4s ease 0.9s;
+  transform-origin: center;
+  transform: scale(0);
+  transition: opacity 0.35s ease 1.1s, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) 1.1s;
 }
 
 .thread-tie.tied .bead {
   opacity: 1;
+  transform: scale(1);
 }
 
 /* =============================================================
@@ -439,12 +547,58 @@ button {
 .confirm-panel {
   text-align: center;
   padding: 12px 0 4px;
+  position: relative;
+}
+
+.petal-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: var(--radius);
+}
+
+.petal {
+  position: absolute;
+  top: -18px;
+  width: 9px;
+  height: 13px;
+  border-radius: 50% 50% 50% 0;
+  opacity: 0.9;
+  animation: petal-fall linear forwards;
+}
+
+@keyframes petal-fall {
+  to {
+    transform: translateY(360px) rotate(340deg);
+    opacity: 0;
+  }
 }
 
 .confirm-panel__icon {
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   margin: 0 auto 16px;
+  position: relative;
+  z-index: 1;
+  transform: scale(0);
+}
+
+.confirm-panel.celebrate .confirm-panel__icon {
+  animation: pop-in 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes pop-in {
+  to {
+    transform: scale(1);
+  }
+}
+
+.confirm-panel__title,
+.confirm-panel__body {
+  position: relative;
+  z-index: 1;
 }
 
 .confirm-panel__title {
