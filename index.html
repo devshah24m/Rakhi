@@ -23,6 +23,35 @@
   </g>
 </svg>
 
+<!-- marigold garland strung across the top -->
+<svg class="garland" viewBox="0 0 1600 84" preserveAspectRatio="none" aria-hidden="true">
+  <defs>
+    <pattern id="garlandPattern" width="76" height="84" patternUnits="userSpaceOnUse">
+      <path d="M0,6 Q38,34 76,6" stroke="#c9962e" stroke-width="1.6" fill="none" opacity="0.85" />
+      <circle cx="38" cy="30" r="9" fill="#e8823c" />
+      <circle cx="38" cy="30" r="9" fill="none" stroke="#fbf1e1" stroke-width="1" opacity="0.55" />
+      <circle cx="38" cy="30" r="3.5" fill="#c9962e" />
+      <path d="M38,39 L38,46" stroke="#6b1e2b" stroke-width="1.4" />
+      <path d="M33,46 Q38,54 43,46" stroke="#2f6b3a" stroke-width="1.6" fill="none" />
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="1600" height="84" fill="url(#garlandPattern)" opacity="0.8" />
+</svg>
+
+<!-- flickering diyas in the bottom corners -->
+<svg class="diya diya--left" viewBox="0 0 80 74" aria-hidden="true">
+  <ellipse cx="40" cy="54" rx="34" ry="11" fill="#8c1f3d" />
+  <ellipse cx="40" cy="49" rx="27" ry="8" fill="#c9962e" />
+  <path class="flame" d="M40,40 C33,29 33,18 40,8 C47,18 47,29 40,40 Z" fill="#e8b84b" />
+  <path class="flame flame--inner" d="M40,36 C36.5,29 36.5,22 40,15 C43.5,22 43.5,29 40,36 Z" fill="#e8823c" opacity="0.9" />
+</svg>
+<svg class="diya diya--right" viewBox="0 0 80 74" aria-hidden="true">
+  <ellipse cx="40" cy="54" rx="34" ry="11" fill="#8c1f3d" />
+  <ellipse cx="40" cy="49" rx="27" ry="8" fill="#c9962e" />
+  <path class="flame" d="M40,40 C33,29 33,18 40,8 C47,18 47,29 40,40 Z" fill="#e8b84b" />
+  <path class="flame flame--inner" d="M40,36 C36.5,29 36.5,22 40,15 C43.5,22 43.5,29 40,36 Z" fill="#e8823c" opacity="0.9" />
+</svg>
+
 <div class="app-shell">
   <div class="brand">
     <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true">
@@ -35,9 +64,13 @@
   <!-- ================= LOGIN VIEW ================= -->
   <section id="view-login" class="view active" aria-labelledby="login-heading">
     <div class="card">
-      <svg class="thread-tie" id="tie-icon" viewBox="0 0 100 100" aria-hidden="true">
-        <path d="M20,50 C20,25 45,25 50,45 C55,25 80,25 80,50 C80,75 55,80 50,60 C45,80 20,75 20,50 Z" />
-        <circle class="bead" cx="50" cy="50" r="5" />
+      <svg class="corner corner--tl" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
+      <svg class="corner corner--br" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
+      <svg class="thread-tie" id="tie-icon" viewBox="0 0 120 120" aria-hidden="true">
+        <path class="bow" d="M26,58 C26,30 54,30 60,52 C66,30 94,30 94,58 C94,86 66,92 60,70 C54,92 26,86 26,58 Z" />
+        <path class="tassel" d="M50,88 C48,98 46,104 44,112" />
+        <path class="tassel" d="M70,88 C72,98 74,104 76,112" />
+        <circle class="bead" cx="60" cy="60" r="6" />
       </svg>
       <p class="eyebrow">A little something, just for you</p>
       <h1 class="headline" id="login-heading">What's your name?</h1>
@@ -65,6 +98,8 @@
   <!-- ================= MESSAGE VIEW ================= -->
   <section id="view-message" class="view" aria-labelledby="message-heading">
     <div class="card">
+      <svg class="corner corner--tl" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
+      <svg class="corner corner--br" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
       <p class="occasion-line">Happy Rakshabandhan</p>
       <h1 class="to-line" id="message-heading">Dear <span id="msg-name">—</span>,</h1>
       <p class="message-text" id="msg-text"></p>
@@ -78,6 +113,8 @@
   <!-- ================= GIFT VIEW ================= -->
   <section id="view-gift" class="view" aria-labelledby="gift-heading">
     <div class="card" id="gift-card">
+      <svg class="corner corner--tl" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
+      <svg class="corner corner--br" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
       <p class="eyebrow">One last thing</p>
       <h1 class="headline" id="gift-heading">Pick your chocolate</h1>
       <p class="sub">Whichever one you like best — I'll get it sent your way.</p>
@@ -95,6 +132,9 @@
 
     <!-- confirmation state, swapped in after a successful send -->
     <div class="card confirm-panel" id="confirm-panel" hidden>
+      <svg class="corner corner--tl" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
+      <svg class="corner corner--br" viewBox="0 0 60 60" aria-hidden="true"><path d="M6,54 C6,28 28,28 28,6" stroke="#c9962e" stroke-width="2" fill="none" /><circle cx="28" cy="6" r="3" fill="#e8823c" /></svg>
+      <div class="petal-field" id="petal-field"></div>
       <svg class="confirm-panel__icon" viewBox="0 0 60 60" aria-hidden="true">
         <circle cx="30" cy="30" r="28" fill="none" stroke="#c9962e" stroke-width="3" />
         <path d="M18,31 L26,39 L43,20" fill="none" stroke="#c9962e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
