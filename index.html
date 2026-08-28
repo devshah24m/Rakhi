@@ -30,12 +30,8 @@
   <div class="backdrop road-sky"><div class="sun"></div><div class="cloud cloud1"></div><div class="cloud cloud2"></div><div class="wires"></div><div class="road"></div></div>
   <div class="caption"><small>01 · BEFORE THE RAKHI</small><h1>Somewhere between<br><em>two states…</em></h1><p>there was one bond that never needed a map.</p><button class="go">Begin our little story <span>→</span></button></div>
   <div class="car-scene">
-  <svg class="carSvg" viewBox="0 0 520 320" xmlns="http://www.w3.org/2000/svg">
+  <svg class="carSvg" viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <radialGradient id="wg" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#555"/>
-        <stop offset="100%" stop-color="#111"/>
-      </radialGradient>
       <linearGradient id="fuseGrad" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%" stop-color="#fafbfc"/>
         <stop offset="100%" stop-color="#cfd2d9"/>
@@ -51,40 +47,35 @@
     </defs>
 
     <!-- Shadow on the runway -->
-    <ellipse cx="260" cy="304" rx="185" ry="12" fill="#00000030"/>
+    <ellipse cx="280" cy="268" rx="195" ry="10" fill="#00000030"/>
 
-    <!-- Wings, swept back and slightly angled up -->
-    <path d="M258,150 L48,182 Q32,186 40,198 L128,208 L258,180 Z" fill="url(#wingGrad)" stroke="#ffffff33" stroke-width="1"/>
-    <path d="M262,150 L472,182 Q488,186 480,198 L392,208 L262,180 Z" fill="url(#wingGrad)" stroke="#ffffff33" stroke-width="1"/>
+    <!-- Wings: wide, nearly full width, slight sweep + dihedral, like the reference photo -->
+    <path d="M285,150 L45,130 L40,148 L280,172 Z" fill="url(#wingGrad)" stroke="#ffffff33" stroke-width="1"/>
+    <path d="M275,150 L515,130 L520,148 L280,172 Z" fill="url(#wingGrad)" stroke="#ffffff33" stroke-width="1"/>
 
-    <!-- Engine nacelles under each wing -->
-    <rect x="112" y="186" width="66" height="32" rx="15" fill="url(#wg)"/>
-    <ellipse cx="145" cy="202" rx="15" ry="15" fill="#333"/>
-    <ellipse cx="145" cy="202" rx="8" ry="8" fill="#888"/>
-    <rect x="342" y="186" width="66" height="32" rx="15" fill="url(#wg)"/>
-    <ellipse cx="375" cy="202" rx="15" ry="15" fill="#333"/>
-    <ellipse cx="375" cy="202" rx="8" ry="8" fill="#888"/>
+    <!-- Four engines, two per wing, hanging below on pylons -->
+    <rect x="175" y="159" width="52" height="18" rx="9" fill="#3a3a3f"/>
+    <circle cx="222" cy="168" r="6" fill="#5a5a60"/>
+    <rect x="95" y="149" width="46" height="16" rx="8" fill="#3a3a3f"/>
+    <circle cx="136" cy="157" r="5" fill="#5a5a60"/>
+    <rect x="333" y="159" width="52" height="18" rx="9" fill="#3a3a3f"/>
+    <circle cx="338" cy="168" r="6" fill="#5a5a60"/>
+    <rect x="419" y="149" width="46" height="16" rx="8" fill="#3a3a3f"/>
+    <circle cx="424" cy="157" r="5" fill="#5a5a60"/>
 
-    <!-- Horizontal stabilizers -->
-    <path d="M230,102 L192,113 L227,120 Z" fill="url(#wingGrad)"/>
-    <path d="M290,102 L328,113 L293,120 Z" fill="url(#wingGrad)"/>
+    <!-- Fuselage, seen almost head-on -->
+    <rect x="257" y="100" width="46" height="75" rx="23" fill="url(#fuseGrad)"/>
+    <rect x="268" y="122" width="24" height="6" rx="3" fill="#b01f33"/>
 
-    <!-- Vertical tail fin -->
-    <path d="M244,84 L260,18 L286,86 Z" fill="url(#tailRedGrad)"/>
+    <!-- Just a sliver of tail fin peeking above, like the photo -->
+    <path d="M270,100 L275,68 L285,68 L290,100 Z" fill="url(#tailRedGrad)"/>
 
-    <!-- Rear fuselage / tail cone -->
-    <path d="M226,152 Q224,96 260,82 Q296,96 294,152 Z" fill="url(#fuseGrad)"/>
-    <rect x="234" y="122" width="52" height="7" rx="3.5" fill="#b01f33"/>
-
-    <!-- Belly fairing blending into wing root -->
-    <path d="M226,152 Q260,178 294,152 L294,180 Q260,198 226,180 Z" fill="url(#fuseGrad)"/>
-
-    <!-- APU exhaust -->
-    <ellipse cx="260" cy="148" rx="11" ry="6" fill="#555"/>
+    <!-- Belly fairing blending fuselage into wing root -->
+    <path d="M257,150 Q280,166 303,150 L303,172 Q280,186 257,172 Z" fill="url(#fuseGrad)"/>
 
     <!-- Wingtip beacons -->
-    <circle class="beacon" cx="38" cy="192" r="5" fill="#ff3b4d"/>
-    <circle class="beacon beaconG" cx="482" cy="192" r="5" fill="#3fd06a"/>
+    <circle class="beacon" cx="41" cy="139" r="5" fill="#ff3b4d"/>
+    <circle class="beacon beaconG" cx="519" cy="139" r="5" fill="#3fd06a"/>
   </svg>
   <div class="dust dust1"></div><div class="dust dust2"></div><div class="dust dust3"></div>
 </div>
