@@ -56,6 +56,14 @@
   function renderMessage() {
     document.getElementById("msg-name").textContent = currentSister.name;
     document.getElementById("msg-text").textContent = currentSister.message;
+
+    const sigEl = document.getElementById("msg-signature");
+    if (typeof CONFIG !== "undefined" && CONFIG.FROM_NAME) {
+      sigEl.textContent = "— " + CONFIG.FROM_NAME;
+      sigEl.classList.remove("hidden");
+    } else {
+      sigEl.classList.add("hidden");
+    }
   }
 
   document.getElementById("btn-back-login").addEventListener("click", () => {
@@ -75,7 +83,8 @@
   const giftGrid = document.getElementById("gift-grid");
   const confirmBtn = document.getElementById("btn-confirm-gift");
   const giftStatus = document.getElementById("gift-status");
-  const giftCard = document.getElementById("gift-card");
+  const giftWrap = document.getElementById("gift-wrap");
+  const confirmWrap = document.getElementById("confirm-wrap");
   const confirmPanel = document.getElementById("confirm-panel");
 
   function chocolateIcon(shape, color) {
@@ -95,8 +104,8 @@
     confirmBtn.disabled = true;
     giftStatus.textContent = "";
     giftStatus.className = "status-line";
-    giftCard.hidden = false;
-    confirmPanel.hidden = true;
+    giftWrap.hidden = false;
+    confirmWrap.hidden = true;
     document.getElementById("address-input").value = "";
 
     CHOCOLATES.forEach((choc) => {
@@ -153,10 +162,18 @@
   });
 
   function showConfirmPanel() {
-    giftCard.hidden = true;
-    confirmPanel.hidden = false;
+    giftWrap.hidden = true;
+    confirmWrap.hidden = false;
     document.getElementById("confirm-body").textContent =
-      `${selectedChocolate.name} is on its way to you, ${currentSister.name}. Happy Rakshabandhan! 🎉`;
+      `${selectedChocolate.name} is on its way to you, ${currentSister.name}. Happy Rakshabandhan!`;
+
+    const sigEl = document.getElementById("confirm-signature");
+    if (typeof CONFIG !== "undefined" && CONFIG.FROM_NAME) {
+      sigEl.textContent = "— " + CONFIG.FROM_NAME;
+      sigEl.classList.remove("hidden");
+    } else {
+      sigEl.classList.add("hidden");
+    }
 
     confirmPanel.classList.remove("celebrate");
     void confirmPanel.offsetWidth; // restart animation if shown again
