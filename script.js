@@ -97,7 +97,7 @@ $("toGift").onclick=()=>{
 };
 
 /* ---------- Chocolate gift flow (Yashika, Riddhi, Bhakti) ---------- */
-const products=[["silk","Dairy Milk Silk",99,"🍫"],["kitkat","KitKat",29,"🍫"],["snickers","Snickers",34,"🥜"],["twix","Twix",72,"🍫"],["ferrero","Ferrero Rocher",163,"🍫"],["5star","5 Star",30,"⭐"],["perk","Perk",20,"🍫"],["kinder","Kinder Joy",50,"🥚"]];
+const products=[["kisses","Kisses",50,"💋"],["5star","5 Star",43,"⭐"],["kitkat","KitKat",72,"🍫"],["silkoreo","Silk Oreo",100,"🍪"],["dairymilk","Dairy Milk",26,"🍫"],["munchmax","Munch Max",20,"🍫"],["galaxy","Galaxy",62,"🌌"]];
 let cart=[];
 function total(){return cart.reduce((s,x)=>s+x.price*x.qty,0)}
 function render(){ $("products").innerHTML=products.map(p=>{let q=cart.find(x=>x.id===p[0])?.qty||0;let allowed=cart.length<2&&total()+p[2]<=200;return `<article class="product ${q?'selected':''}"><div class="ico">${p[3]}</div><h3>${p[1]}</h3><p>${q?'Selected':'A little favourite for you.'}</p><button data-id="${p[0]}" ${allowed?'':'disabled'}>${q?'Selected ✓':'Choose this'}</button></article>`}).join("");document.querySelectorAll(".product button").forEach(b=>b.onclick=()=>{let p=products.find(x=>x[0]===b.dataset.id);if(cart.length>=2||total()+p[2]>200)return;cart.push({id:p[0],name:p[1],price:p[2],qty:1});render()});$("cartText").textContent=cart.length?cart.map(x=>x.name).join(" + "):"Choose up to two";$("checkout").disabled=cart.length!==2;$("chosen").textContent=cart.map(x=>x.name).join(" + ")}
