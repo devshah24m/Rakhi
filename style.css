@@ -145,6 +145,101 @@ button {
 }
 
 /* =============================================================
+   Ambient petals — always gently drifting, not just on confirm
+   ============================================================= */
+.ambient-petals {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ambient-petals span {
+  position: absolute;
+  top: -6%;
+  width: 10px;
+  height: 14px;
+  border-radius: 50% 50% 50% 0;
+  background: var(--marigold);
+  opacity: 0;
+  animation: ambient-fall linear infinite;
+}
+
+@keyframes ambient-fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.4;
+  }
+  92% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(110vh) rotate(320deg);
+    opacity: 0;
+  }
+}
+
+.ambient-petals span:nth-child(1) {
+  left: 5%;
+  animation-duration: 15s;
+  animation-delay: 0s;
+  background: var(--gold);
+}
+.ambient-petals span:nth-child(2) {
+  left: 16%;
+  animation-duration: 19s;
+  animation-delay: 3s;
+}
+.ambient-petals span:nth-child(3) {
+  left: 28%;
+  animation-duration: 17s;
+  animation-delay: 6s;
+  background: var(--thread);
+}
+.ambient-petals span:nth-child(4) {
+  left: 40%;
+  animation-duration: 21s;
+  animation-delay: 1s;
+}
+.ambient-petals span:nth-child(5) {
+  left: 52%;
+  animation-duration: 16s;
+  animation-delay: 8s;
+  background: var(--gold-bright);
+}
+.ambient-petals span:nth-child(6) {
+  left: 64%;
+  animation-duration: 20s;
+  animation-delay: 4s;
+}
+.ambient-petals span:nth-child(7) {
+  left: 75%;
+  animation-duration: 18s;
+  animation-delay: 10s;
+  background: var(--thread);
+}
+.ambient-petals span:nth-child(8) {
+  left: 85%;
+  animation-duration: 22s;
+  animation-delay: 2s;
+}
+.ambient-petals span:nth-child(9) {
+  left: 93%;
+  animation-duration: 17s;
+  animation-delay: 7s;
+  background: var(--gold);
+}
+.ambient-petals span:nth-child(10) {
+  left: 48%;
+  animation-duration: 24s;
+  animation-delay: 12s;
+}
+
+/* =============================================================
    Shell / layout
    ============================================================= */
 .app-shell {
@@ -180,7 +275,7 @@ button {
 
 .view {
   width: 100%;
-  max-width: 560px;
+  max-width: 640px;
   display: none;
 }
 
@@ -200,12 +295,28 @@ button {
   }
 }
 
+.card-wrap {
+  position: relative;
+}
+
+/* rakhi-charm medallion hanging over the top edge of every card */
+.medallion {
+  position: absolute;
+  top: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 64px;
+  z-index: 2;
+  filter: drop-shadow(0 8px 12px rgba(20, 5, 8, 0.45));
+}
+
 .card {
-  background: var(--cream);
+  background: linear-gradient(165deg, #fffaf0 0%, var(--cream) 55%, #f7e6c8 100%);
   border-radius: var(--radius);
   box-shadow: var(--shadow-card), 0 0 0 1px rgba(201, 150, 46, 0.35), 0 0 0 6px rgba(251, 241, 225, 0.5),
     0 0 0 7px rgba(201, 150, 46, 0.5);
-  padding: 44px 38px;
+  padding: 56px 42px 46px;
   position: relative;
   overflow: hidden;
 }
@@ -221,23 +332,44 @@ button {
   background: radial-gradient(circle, rgba(232, 184, 75, 0.35), transparent 70%);
 }
 
+/* faint mandala rings behind the card content, for warmth not decoration-for-its-own-sake */
+.card::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 460px;
+  height: 460px;
+  transform: translate(-50%, -50%);
+  background: repeating-radial-gradient(
+    circle,
+    rgba(201, 150, 46, 0.07) 0px,
+    rgba(201, 150, 46, 0.07) 1.5px,
+    transparent 1.5px,
+    transparent 32px
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
 /* ornamental corner flourishes on every card */
 .corner {
   position: absolute;
-  width: 40px;
-  height: 40px;
-  opacity: 0.55;
+  width: 46px;
+  height: 46px;
+  opacity: 0.6;
   z-index: 1;
 }
 
 .corner--tl {
-  top: 12px;
-  left: 12px;
+  top: 14px;
+  left: 14px;
 }
 
 .corner--br {
-  bottom: 12px;
-  right: 12px;
+  bottom: 14px;
+  right: 14px;
   transform: rotate(180deg);
 }
 
@@ -255,15 +387,15 @@ button {
 
 .headline {
   font-family: var(--font-display);
-  font-size: clamp(28px, 5vw, 38px);
+  font-size: clamp(32px, 5.5vw, 44px);
   line-height: 1.15;
   margin: 0 0 14px;
   color: var(--maroon);
 }
 
 .sub {
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.65;
   color: var(--ink-soft);
   margin: 0 0 28px;
 }
@@ -397,7 +529,7 @@ button {
    ============================================================= */
 .to-line {
   font-family: var(--font-display);
-  font-size: clamp(30px, 6vw, 42px);
+  font-size: clamp(34px, 7vw, 50px);
   color: var(--maroon);
   margin: 0 0 6px;
   text-align: center;
@@ -414,15 +546,41 @@ button {
 }
 
 .message-text {
-  font-size: 17px;
-  line-height: 1.85;
+  position: relative;
+  font-size: 18px;
+  line-height: 1.9;
   color: var(--ink);
   white-space: pre-line;
-  margin: 0 0 32px;
-  padding: 22px 24px;
+  margin: 0 0 6px;
+  padding: 30px 26px 24px;
   background: #fff;
   border-left: 4px solid var(--gold);
   border-radius: 8px;
+  z-index: 1;
+}
+
+.message-text::before {
+  content: "\201C";
+  position: absolute;
+  top: -6px;
+  left: 14px;
+  font-family: var(--font-display);
+  font-size: 68px;
+  color: var(--gold);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+.signature {
+  text-align: right;
+  font-family: var(--font-display);
+  font-size: 19px;
+  color: var(--maroon);
+  margin: 0 0 30px;
+}
+
+.signature.hidden {
+  display: none;
 }
 
 .view-actions {
@@ -577,9 +735,9 @@ button {
 }
 
 .confirm-panel__icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 16px;
+  width: 132px;
+  height: 108px;
+  margin: 0 auto 18px;
   position: relative;
   z-index: 1;
   transform: scale(0);
@@ -596,21 +754,30 @@ button {
 }
 
 .confirm-panel__title,
-.confirm-panel__body {
+.confirm-panel__body,
+.confirm-panel .signature {
   position: relative;
   z-index: 1;
 }
 
 .confirm-panel__title {
   font-family: var(--font-display);
-  font-size: 26px;
+  font-size: 32px;
   color: var(--maroon);
-  margin: 0 0 8px;
+  margin: 0 0 10px;
 }
 
 .confirm-panel__body {
-  font-size: 14.5px;
+  font-size: 15.5px;
   color: var(--ink-soft);
-  line-height: 1.6;
-  margin: 0 0 22px;
+  line-height: 1.7;
+  margin: 0 0 18px;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.confirm-panel .signature {
+  text-align: center;
+  margin: 0;
 }
