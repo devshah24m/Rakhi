@@ -100,11 +100,11 @@ $("toGift").onclick=()=>{
 const products=[["kisses","Kisses",50,"💋"],["5star","5 Star",43,"⭐"],["kitkat","KitKat",72,"🍫"],["silkoreo","Silk Oreo",100,"🍪"],["dairymilk","Dairy Milk",26,"🍫"],["munchmax","Munch Max",20,"🍫"],["galaxy","Galaxy",62,"🌌"]];
 let cart=[];
 function total(){return cart.reduce((s,x)=>s+x.price*x.qty,0)}
-function render(){ $("products").innerHTML=products.map(p=>{let q=cart.find(x=>x.id===p[0])?.qty||0;let allowed=cart.length<2&&total()+p[2]<=200;return `<article class="product ${q?'selected':''}"><div class="ico">${p[3]}</div><h3>${p[1]}</h3><p>${q?'Selected':'A little favourite for you.'}</p><button data-id="${p[0]}" ${allowed?'':'disabled'}>${q?'Selected ✓':'Choose this'}</button></article>`}).join("");document.querySelectorAll(".product button").forEach(b=>b.onclick=()=>{let p=products.find(x=>x[0]===b.dataset.id);if(cart.length>=2||total()+p[2]>200)return;cart.push({id:p[0],name:p[1],price:p[2],qty:1});render()});$("cartText").textContent=cart.length?cart.map(x=>x.name).join(" + "):"Choose up to two";$("checkout").disabled=cart.length!==2;$("chosen").textContent=cart.map(x=>x.name).join(" + ")}
+function render(){ $("products").innerHTML=products.map(p=>{let q=cart.find(x=>x.id===p[0])?.qty||0;let allowed=cart.length<3&&total()+p[2]<=200;return `<article class="product ${q?'selected':''}"><div class="ico">${p[3]}</div><h3>${p[1]}</h3><p>${q?'Selected':'A little favourite for you.'}</p><button data-id="${p[0]}" ${allowed?'':'disabled'}>${q?'Selected ✓':'Choose this'}</button></article>`}).join("");document.querySelectorAll(".product button").forEach(b=>b.onclick=()=>{let p=products.find(x=>x[0]===b.dataset.id);if(cart.length>=3||total()+p[2]>200)return;cart.push({id:p[0],name:p[1],price:p[2],qty:1});render()});$("cartText").textContent=cart.length?cart.map(x=>x.name).join(" + "):"Choose up to three";$("checkout").disabled=cart.length!==3;$("chosen").textContent=cart.map(x=>x.name).join(" + ")}
 $("checkout").onclick=()=>{$("giftPage").classList.remove("active");$("formPage").classList.add("active");render()};
 $("orderForm").onsubmit=async e=>{
   e.preventDefault();
-  if(cart.length!==2||total()>200)return;
+  if(cart.length!==3||total()>200)return;
   let f=new FormData(e.target),payload={type:"order",sister:currentSister.name,name:f.get("name"),phone:f.get("phone"),address:f.get("address"),city:f.get("city"),state:f.get("state"),pin:f.get("pin"),chocolates:cart.map(x=>({id:x.id,qty:1}))};
   $("send").disabled=true;$("send").textContent="Sending…";
   try{
