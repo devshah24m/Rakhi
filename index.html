@@ -29,7 +29,102 @@
 <section class="story" data-step="1">
   <div class="backdrop road-sky"><div class="sun"></div><div class="cloud cloud1"></div><div class="cloud cloud2"></div><div class="wires"></div><div class="road"></div></div>
   <div class="caption"><small>01 · BEFORE THE RAKHI</small><h1>Somewhere between<br><em>two states…</em></h1><p>there was one bond that never needed a map.</p><button class="go">Begin our little story <span>→</span></button></div>
-  <div class="bike-scene"><div class="bike"><svg class="bikeSvg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg"><g class="wheel wheelRear"><circle cx="70" cy="170" r="48" fill="none" stroke="#222" stroke-width="12"/><circle cx="70" cy="170" r="6" fill="#dce0e2"/><g stroke="#8a8a8a" stroke-width="3"><line x1="70" y1="170" x2="70" y2="126"/><line x1="70" y1="170" x2="70" y2="214"/><line x1="70" y1="170" x2="26" y2="170"/><line x1="70" y1="170" x2="114" y2="170"/><line x1="70" y1="170" x2="101" y2="139"/><line x1="70" y1="170" x2="39" y2="201"/><line x1="70" y1="170" x2="39" y2="139"/><line x1="70" y1="170" x2="101" y2="201"/></g></g><g class="wheel wheelFront"><circle cx="330" cy="170" r="48" fill="none" stroke="#222" stroke-width="12"/><circle cx="330" cy="170" r="6" fill="#dce0e2"/><g stroke="#8a8a8a" stroke-width="3"><line x1="330" y1="170" x2="330" y2="126"/><line x1="330" y1="170" x2="330" y2="214"/><line x1="330" y1="170" x2="286" y2="170"/><line x1="330" y1="170" x2="374" y2="170"/><line x1="330" y1="170" x2="361" y2="139"/><line x1="330" y1="170" x2="299" y2="201"/><line x1="330" y1="170" x2="299" y2="139"/><line x1="330" y1="170" x2="361" y2="201"/></g></g><path d="M70,170 L160,55 M160,55 L200,170 M70,170 L200,170 M200,170 L290,55 M290,55 L330,170" fill="none" stroke="#8dc83d" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><line x1="143" y1="42" x2="177" y2="42" stroke="#8dc83d" stroke-width="10" stroke-linecap="round"/><line x1="160" y1="55" x2="160" y2="42" stroke="#8dc83d" stroke-width="9" stroke-linecap="round"/><line x1="272" y1="46" x2="308" y2="38" stroke="#8dc83d" stroke-width="10" stroke-linecap="round"/><line x1="290" y1="55" x2="290" y2="42" stroke="#8dc83d" stroke-width="9" stroke-linecap="round"/><circle cx="200" cy="170" r="15" fill="#222"/><circle cx="200" cy="170" r="5" fill="#8a8a8a"/><line x1="200" y1="170" x2="232" y2="186" stroke="#222" stroke-width="8" stroke-linecap="round" class="pedalArm"/></svg></div><div class="rider boy"><div class="hair"></div><div class="head"></div><div class="eyes"></div><div class="mouth"></div><div class="neck"></div><div class="shirt yellow"></div><div class="arm a1"></div><div class="arm a2"></div><div class="jeans"></div><div class="shoe s1"></div><div class="shoe s2"></div></div></div>
+  <div class="car-scene">
+  <svg class="carSvg" viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="wg" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#555"/>
+        <stop offset="100%" stop-color="#111"/>
+      </radialGradient>
+      <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#e8334a"/>
+        <stop offset="100%" stop-color="#b01f33"/>
+      </linearGradient>
+      <linearGradient id="roofGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#cc2a40"/>
+        <stop offset="100%" stop-color="#991828"/>
+      </linearGradient>
+      <linearGradient id="windGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#a8d8ea" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#7ec8e3" stop-opacity="0.6"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Shadow -->
+    <ellipse cx="260" cy="188" rx="200" ry="10" fill="#00000033"/>
+
+    <!-- Car body lower -->
+    <rect x="60" y="118" width="400" height="60" rx="14" fill="url(#bodyGrad)"/>
+
+    <!-- Car roof / cabin -->
+    <path d="M155,118 Q175,62 210,55 L340,55 Q375,55 385,118 Z" fill="url(#roofGrad)"/>
+
+    <!-- Windshield front -->
+    <path d="M310,60 Q360,62 382,112 L320,112 Z" fill="url(#windGrad)" stroke="#ffffff22" stroke-width="1"/>
+
+    <!-- Windshield rear -->
+    <path d="M220,60 Q175,62 158,112 L215,112 Z" fill="url(#windGrad)" stroke="#ffffff22" stroke-width="1"/>
+
+    <!-- Side windows -->
+    <rect x="225" y="62" width="90" height="48" rx="6" fill="url(#windGrad)" stroke="#ffffff22" stroke-width="1"/>
+
+    <!-- Window divider pillar -->
+    <rect x="312" y="60" width="6" height="52" rx="3" fill="#991828"/>
+
+    <!-- Door line -->
+    <line x1="270" y1="118" x2="270" y2="175" stroke="#c02035" stroke-width="2"/>
+
+    <!-- Door handle front -->
+    <rect x="290" y="145" width="22" height="5" rx="2.5" fill="#c8c8c8"/>
+    <!-- Door handle rear -->
+    <rect x="185" y="145" width="22" height="5" rx="2.5" fill="#c8c8c8"/>
+
+    <!-- Headlight -->
+    <ellipse cx="455" cy="142" rx="18" ry="10" fill="#fffbe6" opacity="0.95"/>
+    <ellipse cx="455" cy="142" rx="12" ry="7" fill="#fff" opacity="0.8"/>
+    <!-- Headlight glow -->
+    <ellipse cx="470" cy="142" rx="28" ry="8" fill="#fffbe6" opacity="0.18"/>
+
+    <!-- Tail light -->
+    <rect x="62" y="130" width="14" height="18" rx="4" fill="#ff4455" opacity="0.9"/>
+    <rect x="63" y="131" width="6" height="8" rx="2" fill="#ff8899"/>
+
+    <!-- Bumper front -->
+    <rect x="440" y="158" width="28" height="12" rx="5" fill="#c8c8c8"/>
+    <!-- Bumper rear -->
+    <rect x="52" y="158" width="22" height="12" rx="5" fill="#c8c8c8"/>
+
+    <!-- Roof rack / luggage hint -->
+    <rect x="195" y="50" width="150" height="7" rx="3" fill="#881525"/>
+    <rect x="210" y="43" width="10" height="10" rx="2" fill="#771020"/>
+    <rect x="330" y="43" width="10" height="10" rx="2" fill="#771020"/>
+
+    <!-- Wheels -->
+    <g class="carWheelR">
+      <circle cx="380" cy="178" r="32" fill="url(#wg)"/>
+      <circle cx="380" cy="178" r="20" fill="#222"/>
+      <circle cx="380" cy="178" r="10" fill="#777"/>
+      <!-- spokes -->
+      <line x1="380" y1="158" x2="380" y2="198" stroke="#888" stroke-width="3"/>
+      <line x1="360" y1="178" x2="400" y2="178" stroke="#888" stroke-width="3"/>
+      <line x1="366" y1="164" x2="394" y2="192" stroke="#888" stroke-width="2.5"/>
+      <line x1="394" y1="164" x2="366" y2="192" stroke="#888" stroke-width="2.5"/>
+    </g>
+    <g class="carWheelF">
+      <circle cx="148" cy="178" r="32" fill="url(#wg)"/>
+      <circle cx="148" cy="178" r="20" fill="#222"/>
+      <circle cx="148" cy="178" r="10" fill="#777"/>
+      <line x1="148" y1="158" x2="148" y2="198" stroke="#888" stroke-width="3"/>
+      <line x1="128" y1="178" x2="168" y2="178" stroke="#888" stroke-width="3"/>
+      <line x1="134" y1="164" x2="162" y2="192" stroke="#888" stroke-width="2.5"/>
+      <line x1="162" y1="164" x2="134" y2="192" stroke="#888" stroke-width="2.5"/>
+    </g>
+
+    <!-- Wheel arches -->
+    <path d="M348,178 Q348,140 380,140 Q412,140 412,178" fill="#b01f33"/>
+    <path d="M116,178 Q116,140 148,140 Q180,140 180,178" fill="#b01f33"/>
+  </svg>
+</div>
   <div class="pageNo">01 <span>OF 06</span></div>
 </section>
 
