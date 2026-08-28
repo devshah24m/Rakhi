@@ -52,8 +52,8 @@ ${escapeTelegram(blessing)}
       const { sister, name, phone, address, city, state, pin, chocolates } = body;
 
       if (!name || !phone || !address || !city || !state || !pin ||
-          !Array.isArray(chocolates) || chocolates.length !== 2) {
-        return res.status(400).json({ error: "Please choose two chocolates and complete the details." });
+          !Array.isArray(chocolates) || chocolates.length !== 3) {
+        return res.status(400).json({ error: "Please choose three chocolates and complete the details." });
       }
 
       let total = 0;
@@ -79,7 +79,7 @@ ${escapeTelegram(blessing)}
 
 📱 *Phone:* ${escapeTelegram(phone)}
 
-🍫 *Two favourites:*
+🍫 *Three favourites:*
 ${items.join("\n")}
 
 📍 *Delivery Address:*
